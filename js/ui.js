@@ -8,19 +8,30 @@ const ui = {
         try {
             const pensamentos = await api.buscarPensamentos();
             pensamentos.forEach(pensamento => {
-                listaPensamentos.innerHTML += `
-                    <li class="li-pensamento" data-id="${pensamento.id}">
-                        <img src="assets/imagens/aspas-azuis.png" alt="Aspas azuis" class="icone-aspas">
-                        <div class="pensamento-conteudo">${pensamento.conteudo}</div>
-                        <div class="pensamento-autoria">${pensamento.autoria}</div>
-                    </li>
-                `
-            });
+                ui.adicionarPensamento(pensamento);
+            }); 
+            return;
         } catch(error) {
             console.error(error);
             alert(message.error);
             return null;
         };
+    },
+
+    async adicionarPensamento(pensamento) {
+        const listaPensamentos = document.querySelector('#lista-pensamentos');
+        const li = document.createElement('li');
+        
+        li.classList.add('li-pensamento');
+        li.setAttribute('data-id', pensamento.id);
+
+        li.innerHTML = `
+            <img src="assets/imagens/aspas-azuis.png" alt="Aspas azuis" class="icone-aspas">
+            <div class="pensamento-conteudo">${pensamento.conteudo}</div>
+            <div class="pensamento-autoria">${pensamento.autoria}</div>
+        `
+        listaPensamentos.append(li);
+        return;        
     }
 }
 
