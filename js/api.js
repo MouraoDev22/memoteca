@@ -58,6 +58,19 @@ const api = {
             return null;
         };
     },
+
+    async excluirPensamento(id) {
+        try {
+            const response = await fetch(`http://localhost:3000/pensamentos/${id}`, {
+                method: 'DELETE'
+            });
+            return;
+        } catch(error) {
+            console.error(error);
+            alert(message.error);
+            return null;
+        };
+    },
 }
 
 export default api;

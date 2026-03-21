@@ -43,6 +43,18 @@ const ui = {
             ui.preencherFormulario(pensamento.id);
         });
 
+        li.querySelector('.botao-excluir').addEventListener('click', async () => {
+            try {
+                await api.excluirPensamento(pensamento.id);
+                ui.renderizarPensamentos();
+                return;
+            } catch(error) {
+                console.error(error);
+                alert(message.error);
+                return null;
+            };
+        });
+
         listaPensamentos.append(li);
         return;        
     },
