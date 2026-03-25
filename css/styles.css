@@ -180,6 +180,7 @@ h2, h3 {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  cursor: pointer;
 }
 
 #botao-salvar {
@@ -281,4 +282,14 @@ span {
   height: 1px;
   background: #041832;
   margin: 96px 0 48px 0;
+}
+
+#lista-pensamentos-vazia {
+  margin-top: 1rem;
+  
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }

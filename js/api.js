@@ -3,8 +3,8 @@ const URL_BASE = 'http://localhost:3000';
 const api = {
     async buscarPensamentos() {
         try {
-            const response = await fetch(`${URL_BASE}/pensamentos`);
-            const data = await response.json();
+            const response = await axios.get(`${URL_BASE}/pensamentos`);
+            const data = await response.data;
             return data;
         } catch(error) {
             console.error(error);
@@ -15,14 +15,8 @@ const api = {
 
     async salvarPensamento(pensamento) {
         try {
-            const response = await fetch(`${URL_BASE}/pensamentos`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(pensamento)
-            });
-            const data = await response.json();
+            const response = await axios.post(`${URL_BASE}/pensamentos`, pensamento);
+            const data = await response.data;
             return data;
         } catch(error) {
             console.error(error);
@@ -33,8 +27,8 @@ const api = {
 
     async buscarPensamentoPorId(id) {
         try {
-            const response = await fetch(`${URL_BASE}/pensamentos/${id}`);
-            const data = await response.json();
+            const response = await axios.get(`${URL_BASE}/pensamentos/${id}`);
+            const data = await response.data;
             return data;
         } catch(error) {
             console.error(error);
@@ -45,14 +39,8 @@ const api = {
 
     async editarPensamento(pensamento) {
         try {
-            const response = await fetch(`${URL_BASE}/pensamentos/${pensamento.id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(pensamento)
-            });
-            const data = await response.json();
+            const response = await axios.put(`${URL_BASE}/pensamentos/${pensamento.id}`, pensamento);
+            const data = await response.data;
             return data;
         } catch(error) {
             console.error(error);
@@ -63,9 +51,7 @@ const api = {
 
     async excluirPensamento(id) {
         try {
-            const response = await fetch(`${URL_BASE}/pensamentos/${id}`, {
-                method: 'DELETE'
-            });
+            const response = await axios.delete(`${URL_BASE}/pensamentos/${id}`);
             return;
         } catch(error) {
             console.error(error);

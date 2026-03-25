@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CRUD de Pensamentos</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js" defer></script>
     <script src="./js/app.js" type="module" defer></script>
   </head>
   <body>
@@ -51,7 +51,7 @@
             <button 
               type="submit" 
               id="botao-salvar">
-              Adicionar
+              Salvar
             </button>
             <button 
               type="reset" 
@@ -64,6 +64,10 @@
       <span></span>
       <section id="lista-pensamentos-container">
         <h3>Meu Mural</h3>
+        <div id="lista-pensamentos-vazia">
+          <span class="lista-penmsamentos-vazia__texto">Nada por aqui ainda, que tal compartilhar alguma ideia?</span>
+          <img src="./assets/imagens/lista-vazia.png" alt="Ícone de lista vazia" class="lista-penmsamentos-vazia__imagem">
+        </div>
         <ul id="lista-pensamentos"></ul>
       </section>
     </main>
