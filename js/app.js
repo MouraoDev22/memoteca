@@ -1,33 +1,33 @@
-import ui from './ui.js';
-import api from './api.js';
+import ui from "./ui.js";
+import api from "./api.js";
 
-document.addEventListener('DOMContentLoaded', async () => {
-    await ui.renderizarPensamentos();
+document.addEventListener("DOMContentLoaded", async () => {
+  await ui.renderizarPensamentos();
 
-    const formPensamento = document.getElementById('pensamento-form');
-    formPensamento.addEventListener('submit', manipularSubmitForm);
-    return;
+  const formPensamento = document.getElementById("pensamento-form");
+  formPensamento.addEventListener("submit", manipularSubmitForm);
+  return;
 });
 
 async function manipularSubmitForm(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const id = document.getElementById('pensamento-id').value;
-    const conteudo = document.getElementById('pensamento-conteudo').value;
-    const autoria = document.getElementById('pensamento-autoria').value;
-    
-    try {
-        if (id) {
-            await api.editarPensamento({ id, conteudo, autoria });
-        } else {
-            await api.salvarPensamento({ conteudo, autoria });
-        };
+  const id = document.getElementById("pensamento-id").value;
+  const conteudo = document.getElementById("pensamento-conteudo").value;
+  const autoria = document.getElementById("pensamento-autoria").value;
 
-        await ui.renderizarPensamentos();
-        return;
-    } catch(error) {
-        console.error(error);
-        alert(message.error);
-        return null;
-    };
-};
+  try {
+    if (id) {
+      await api.editarPensamento({ id, conteudo, autoria });
+    } else {
+      await api.salvarPensamento({ conteudo, autoria });
+    }
+
+    await ui.renderizarPensamentos();
+    return;
+  } catch (error) {
+    console.error(error);
+    alert(error.message || "Ocorreu um erro.");
+    return null;
+  }
+}

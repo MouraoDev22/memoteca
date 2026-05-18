@@ -1,0 +1,30 @@
+{
+  "name": "memoteca",
+  "version": "1.0.0",
+  "description": "![Thumbnail](./thumb.png)",
+  "main": "./js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MouraoDev22/memoteca.git"
+  },
+  "keywords": [],
+  "author": "Mourão",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/MouraoDev22/memoteca/issues"
+  },
+  "homepage": "https://github.com/MouraoDev22/memoteca#readme",
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "10.4.0",
+    "globals": "17.6.0",
+    "prettier": "3.8.3"
+  },
+  "dependencies": {
+    "axios": "1.16.1"
+  }
+}
