@@ -2,19 +2,21 @@ import api from "./api.js";
 
 const ui = {
   async renderizarPensamentos() {
-    const listaPensamentos = document.querySelector("#lista-pensamentos");
+    const listaPensamentos = document.getElementById("lista-pensamentos");
+    const mensagemVazia = document.getElementById("mensagem-vazia");
     listaPensamentos.innerHTML = "";
 
     try {
       const pensamentos = await api.buscarPensamentos();
-      pensamentos.forEach((pensamento) => {
-        ui.adicionarPensamento(pensamento);
-      });
-      return;
-    } catch (error) {
+      if (pensamentos.length === 0) {
+        mensagemVazia.style.display = "block";
+      } else {
+        mensagemVazia.style.display = "none";
+        pensamentos.forEach(ui.adicionarPensamentoNaLista);
+      }
+    } catch(error) {
       console.error(error);
       alert(error.message || "Ocorreu um erro ao carregar os pensamentos.");
-      return null;
     }
   },
 

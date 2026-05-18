@@ -38,9 +38,8 @@
             id="pensamento-conteudo"
             placeholder="Digite seu pensamento"
             required
-          >
-          </textarea>
-          <label for="pensamento-autoria"> Autoria ou Fonte </label>
+          ></textarea>
+          <label for="pensamento-autoria">Autoria ou Fonte</label>
           <input
             type="text"
             id="pensamento-autoria"
@@ -49,22 +48,19 @@
           />
           <div class="form-botoes">
             <button type="submit" id="botao-salvar">Salvar</button>
-            <button type="reset" id="botao-cancelar">Cancelar</button>
+            <button type="button" id="botao-cancelar">Cancelar</button>
           </div>
         </form>
       </section>
       <span></span>
       <section id="lista-pensamentos-container">
         <h3>Meu Mural</h3>
-        <div id="lista-pensamentos-vazia">
-          <span class="lista-penmsamentos-vazia__texto"
-            >Nada por aqui ainda, que tal compartilhar alguma ideia?</span
-          >
+        <div id="mensagem-vazia" class="mensagem-vazia">
           <img
-            src="./assets/imagens/lista-vazia.png"
-            alt="Ícone de lista vazia"
-            class="lista-penmsamentos-vazia__imagem"
+            src="assets/imagens/lista-vazia.png"
+            alt="Nenhum pensamento disponível"
           />
+          <p>Nada por aqui ainda, que tal compartilhar alguma ideia?</p>
         </div>
         <ul id="lista-pensamentos"></ul>
       </section>
